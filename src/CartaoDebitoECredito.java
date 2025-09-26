@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class CartaoDebitoECredito extends InformacoesDePagamento{
     String titular;
-    int numero_do_cartao;
+    String numero_do_cartao;
     String vencimento;
-    int codigo_cvc;
+    String codigo_cvc;
 
     CartaoDebitoECredito(String  nome_produto, int quantidade, int valor, String remetente, String destinatario, String titular,
                          int numero_do_cartao, String vencimento, int codigo_cvc) {
@@ -18,17 +18,43 @@ public class CartaoDebitoECredito extends InformacoesDePagamento{
     public void solicitar_dados_cartao() {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Qual o nome do titular?: ");
+        System.out.print("Digite o nome do titular: ");
         this.titular = sc.nextLine();
 
+        while (!this.titular.matches("[A-Za-z ]+")) {
+            System.out.println("Índice inválido.");
+            System.out.print("Digite o nome do titular: ");
+
+            this.titular = sc.nextLine();
+        }
+
         System.out.print("Digite o número do cartão: ");
-        this.numero_do_cartao = sc.nextInt();
+
+        while (!this.numero_do_cartao.matches("[0-9]+")) {
+            System.out.println("Índice inválido.");
+            System.out.print("Digite o número do cartão: ");
+
+            this.numero_do_cartao = sc.nextLine();
+        }
 
         System.out.print("Digite a data de vencimento: ");
         this.vencimento = sc.nextLine();
 
+        while (!this.vencimento.matches("[0-9/]+")) {
+            System.out.println("Índice inválido.");
+            System.out.print("Digite a data de vencimento: ");
+
+            this.vencimento = sc.nextLine();
+        }
+
         System.out.print("digite o código cvc: ");
-        this.codigo_cvc = sc.nextInt();
+
+        while (!this.codigo_cvc.matches("[0-9]+")) {
+            System.out.println("Índice inválido.");
+            System.out.print("digite o código cvc: ");
+
+            this.codigo_cvc = sc.nextLine();
+        }
     }
     public void mostrar_dados_cartao() {
         System.out.println("Nome do titular: "+ titular);

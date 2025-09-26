@@ -16,8 +16,22 @@ public class InformacoesDePagamento extends Produto {
         System.out.print("Digite o nome do remetente: ");
         this.remetente = sc.nextLine();
 
+        while (!this.remetente.matches("[A-Za-z ]+")) {
+            System.out.println("Índice inválido.");
+            System.out.print("Digite o nome do remetente: ");
+
+            this.remetente = sc.nextLine();
+        }
+
         System.out.print("Digite o nome do destinatário: ");
         this.destinatario = sc.nextLine();
+
+        while (!this.destinatario.matches("[A-Za-z ]+")) {
+            System.out.println("Índice inválido.");
+            System.out.print("Digite o nome do destinatário: ");
+
+            this.destinatario = sc.nextLine();
+        }
     }
     public void mostrar_informacoes_de_pagamento() {
         System.out.println("nome do remetente: "+ remetente);

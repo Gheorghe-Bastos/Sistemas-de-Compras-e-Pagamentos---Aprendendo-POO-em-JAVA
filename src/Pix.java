@@ -13,6 +13,15 @@ public class Pix extends InformacoesDePagamento{
 
         System.out.print("Digite a chave pix do destinatario: ");
         this.chave_pix = sc.nextLine();
+
+        while (!this.chave_pix.matches("[A-Za-z@0-9. ]+")) {
+
+            System.out.println("Chave pix inválida.");
+            System.out.print("Digite a chave pix do destinatario: ");
+
+            this.chave_pix = sc.nextLine();
+        }
+
     }
     public void mostrar_dados_pix() {
         System.out.println("chave pix do destinatario: "+ chave_pix);
