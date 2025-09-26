@@ -7,7 +7,7 @@ public class CartaoDebitoECredito extends InformacoesDePagamento{
     String codigo_cvc;
 
     CartaoDebitoECredito(String  nome_produto, int quantidade, int valor, String remetente, String destinatario, String titular,
-                         int numero_do_cartao, String vencimento, int codigo_cvc) {
+                         String numero_do_cartao, String vencimento, String codigo_cvc) {
     super(nome_produto, quantidade, valor, remetente, destinatario);
 
     this.titular = titular;
